@@ -132,3 +132,5 @@ dmypy.json
 *.zip
 *.app
 Untitled
+DEV_*
+DEP_*
