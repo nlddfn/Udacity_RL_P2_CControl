@@ -91,17 +91,24 @@ def execute_policy(env, agent, num_agents, step):
         if np.any(dones):  # exit loop if episode finished
             break
     print(f"Total score (averaged over agents) for episode {step}: {np.mean(scores)}")
+    return np.mean(scores)
 
 
 def evaluate_agent(
-    agent, env, num_agents, checkpoint_pth=".", num_episodes=100, min_score=30
+    agent, env, num_agents, checkpoint_pth="{}", num_episodes=100, min_score=30
 ):
     score_lst = []
     agent.actor_local.load_state_dict(
-        torch.load(f"{checkpoint_pth}/checkpoint_env_solved_actor.pth")
+        torch.load(
+            checkpoint_pth.format("actor"),
+            map_location=torch.device('cpu')
+        ),
     )
     agent.critic_local.load_state_dict(
-        torch.load(f"{checkpoint_pth}/checkpoint_env_solved_critic.pth")
+        torch.load(
+            checkpoint_pth.format("critic"),
+            map_location=torch.device('cpu')
+        ),
     )
     for i in range(num_episodes):
         score_lst.append(execute_policy(env, agent, num_agents, i))
