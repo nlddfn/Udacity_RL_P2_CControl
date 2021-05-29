@@ -42,6 +42,6 @@ Each agent acts independently on the environment. This concept is useful for alg
 
 ## Train and execute the model
 
-Within the virtual environment you can train and evaluate the model using `python main.py`. If you only want to evaluate the solved model included in the repo, set `TRAIN = False` in `main.py` and then run the script.
+Within the virtual environment you can train and evaluate the model using `python main.py`. By default, the script will load the environment and evaluate a pre-trained model. If you  want to retrain the model, set `TRAIN = True` in `main.py` and then run the script.
 
-You can also use the notebook `Continuous_Control.ipynb` to (re)train and evaluate the model. Set the flag train to `TRUE` to retrain the model. Further details can be found [here](Report.md)
+You can also use the notebook `Continuous_Control.ipynb` to train and evaluate the model. Set the flag train to `TRUE` to re-train the model. Further details can be found [here](Report.md)

@@ -9,7 +9,7 @@ from deterministic_dpg_agent import Agent
 from train_eval import evaluate_agent, train_agent
 from unityagents import UnityEnvironment
 
-TRAIN = True
+TRAIN = False
 
 # select this option to load version 2 (with 20 agents) of the environment
 env_path = "/data/Reacher_Linux_NoVis/Reacher.x86_64"
