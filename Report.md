@@ -3,7 +3,8 @@
 # Technical Report
 
 ## Learning Algorithm
-The project implements Deep Deterministic Policy Gradients to solve the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) Unity Environment. The original algorithm is described in this [paper](https://arxiv.org/abs/1509.02971).
+The project implements [Deep Deterministic Policy Gradient](https://arxiv.org/abs/1509.02971) (DDPG), an actor-critic, model-free algorithm that can operate over continuous action spaces. The algorithm was used to solve the [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) Unity Environment.
+
 
 ## Hyper-parameters
 
@@ -28,6 +29,6 @@ The environment was solved in 105 episodes. The final average reward converged t
 </figure>
 
 ## Ideas for Future Work
-The main challenge training the agent has been the instability. In the process of solving the environment, I tried MANY combinations of parameters and network architectures that resulted in a sudden drop of the reward after a variable number of episodes. It is very hard to find a correlation between the parameter choice and the agent behavior.
+Despite using gradient clipping, soft target update  and replay buffer, the main challenge training the agent has been the unstable learning. In the process of solving the environment, I tried MANY combinations of parameters and network architectures that resulted in a sudden drop of the reward after a variable number of episodes. It is very hard to find a correlation between the parameter choice and the agent behavior.
 
 In the literature I found a [paper](https://cardwing.github.io/files/RL_course_report.pdf) suggesting that Prioritized Replay Buffer could improve DDPG. Other [blogs](https://medium.com/@kinwo/solving-continuous-control-environment-using-deep-deterministic-policy-gradient-ddpg-agent-5e94f82f366d) suggest the use of BatchNorm to improve convergence.
